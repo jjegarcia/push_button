@@ -43,20 +43,21 @@
 #include "mcc_generated_files/rn487x/rn487x.h"
 #include "mcc_generated_files/drivers/uart.h"
 #include "mcc_generated_files/ext_int.h"
+#include "mcc_generated_files/tmr0.h"
 
 /** MACRO used to reference Periodic Timer overflow flag Set. 
  *  This is used by the application to have a semi-accurate 
  *  periodic task execution rate. 
  *  Strict adherence to time interval is not required.
  */
-#define TIMER_FLAG_SET()                (TMR0_HasOverflowOccured())
+//#define TIMER_FLAG_SET()                (TMR0_HasOverflowOccured())
 /** MACRO used to reset the Periodic Timer overflow flag.
  *  This is used by the application to reload the semi-accurate
  *  periodic task execution.
  *  The rate allows for a (100%) drift prior to error
  *  Is susceptible to effect by extended BLE communication. 
  */
-#define RESET_TIMER_INTERRUPT_FLAG      (PIR0bits.TMR0IF = 0)
+//#define RESET_TIMER_INTERRUPT_FLAG      (PIR0bits.TMR0IF = 0)
 /** MACRO used to configure the application used buffer sizes.
  *  This is used by the application for communication buffers.
  */
@@ -85,7 +86,7 @@ int main(void)
     RN487X_Init();
     LIGHTBLUE_Initialize();
     
-    RESET_TIMER_INTERRUPT_FLAG;
+//    RESET_TIMER_INTERRUPT_FLAG;
 
     while (1)
     {
@@ -96,13 +97,17 @@ int main(void)
             }
             else
             {
-//                a++;
                 DataLedOn();
+                RELOAD_TIMER();
+                RESET_TIMER_INTERRUPT_FLAG;
+                START_TIMER();
             }
         }
         
-        if (TIMER_FLAG_SET()==true){
+        if (TIMER_FLAG_SET()){
+            
             RESET_TIMER_INTERRUPT_FLAG;
+            DataLedOff();
             a++;
         }
         

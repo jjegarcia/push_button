@@ -60,8 +60,11 @@
 
 #endif
 
-
-
+#define START_TIMER()               (TMR0_StartTimer())
+#define RELOAD_TIMER()              (TMR0_Reload())
+#define TIMER_FLAG_SET()            (TMR0_HasOverflowOccured())        
+#define RESET_TIMER_INTERRUPT_FLAG  (PIR0bits.TMR0IF = 0)
+        
 /**
   Section: TMR0 APIs
 */
