@@ -61,10 +61,13 @@ extern "C" {
 #endif
 
 bool Button_Pushed;
-
+bool Button_Initialised;
 #define IS_BUTTON_PUSHED() (Button_Pushed==true)
 #define BUTTON_PUSHED() (Button_Pushed=true) 
-#define BUTTON_RELEASE() (Button_Pushed=false)
+#define BUTTON_PUSHED_CLEAR() (Button_Pushed=false)
+#define IS_BUTTON_INITIALISED() (Button_Initialised==true)
+#define BUTTON_INITIALISED() (Button_Initialised=true) 
+#define BUTTON_INITIALISED_CLEAR() (Button_Initialised=false)
 
 /**
     Section: Macros

@@ -88,8 +88,14 @@ int main(void)
     while (1)
     {
         if (IS_BUTTON_PUSHED()){
-            
-            a++;
+            BUTTON_PUSHED_CLEAR();
+            if(!IS_BUTTON_INITIALISED()){
+                BUTTON_INITIALISED();  
+            }
+            else
+            {
+                a++;
+            }
         }
         if (RN487X_IsConnected() == true)
         {
