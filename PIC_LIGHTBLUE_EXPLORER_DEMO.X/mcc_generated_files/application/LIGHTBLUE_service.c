@@ -55,24 +55,24 @@
  \retval decimal value of ancii character \n
 */
 #define Ascii2Decimal(c)            (((c) <= '9') ? (c) - '0' : (c & 0x5f) - 'A' + 10)
-/**
-\ingroup LIGHTBLUE
-\def DataLedOn() 
- * Macro used to turn ON the DATA LED. This will configured the connected pin
- * to be driven in the direction which turns the LED ON.
- * This LED is ACTIVE_LOW \n
- \return void \n
-*/
-#define DataLedOn()                 DATA_LED_SetLow()
-/**
-\ingroup LIGHTBLUE
-\def DataLedOff() 
- * Macro used to turn OFF the DATA LED. This will configured the connected pin
- * to be driven in the direction which turns the LED OFF.
- * This LED is ACTIVE_LOW \n
- \return void \n
-*/
-#define DataLedOff()                DATA_LED_SetHigh()
+///**
+//\ingroup LIGHTBLUE
+//\def DataLedOn() 
+// * Macro used to turn ON the DATA LED. This will configured the connected pin
+// * to be driven in the direction which turns the LED ON.
+// * This LED is ACTIVE_LOW \n
+// \return void \n
+//*/
+//#define DataLedOn()                 DATA_LED_SetLow()
+///**
+//\ingroup LIGHTBLUE
+//\def DataLedOff() 
+// * Macro used to turn OFF the DATA LED. This will configured the connected pin
+// * to be driven in the direction which turns the LED OFF.
+// * This LED is ACTIVE_LOW \n
+// \return void \n
+//*/
+//#define DataLedOff()                DATA_LED_SetHigh()
 /**
 \ingroup LIGHTBLUE
 \def START_BYTE

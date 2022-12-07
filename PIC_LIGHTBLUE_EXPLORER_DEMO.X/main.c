@@ -84,6 +84,8 @@ int main(void)
 
     RN487X_Init();
     LIGHTBLUE_Initialize();
+    
+    RESET_TIMER_INTERRUPT_FLAG;
 
     while (1)
     {
@@ -94,9 +96,16 @@ int main(void)
             }
             else
             {
-                a++;
+//                a++;
+                DataLedOn();
             }
         }
+        
+        if (TIMER_FLAG_SET()==true){
+            RESET_TIMER_INTERRUPT_FLAG;
+            a++;
+        }
+        
         if (RN487X_IsConnected() == true)
         {
             if (TIMER_FLAG_SET() == true)

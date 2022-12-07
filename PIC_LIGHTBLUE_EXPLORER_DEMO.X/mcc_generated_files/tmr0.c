@@ -83,12 +83,13 @@ void TMR0_Initialize(void)
 
     // T0OUTPS 1:1; T0EN enabled; T016BIT 16-bit; 
     T0CON0 = 0x90;
+    T0CON0bits.T0EN=0;
 }
 
 void TMR0_StartTimer(void)
 {
     // Start the Timer by writing to TMR0ON bit
-    T0CON0bits.T0EN = 1;
+//    T0CON0bits.T0EN = 1;
 }
 
 void TMR0_StopTimer(void)
@@ -127,7 +128,7 @@ void TMR0_Reload(void)
 bool TMR0_HasOverflowOccured(void)
 {
     // check if  overflow has occurred by checking the TMRIF bit
-    return(PIR0bits.TMR0IF);
+    return(PIR0bits.TMR0IF==1);
 }
 /**
   End of File
