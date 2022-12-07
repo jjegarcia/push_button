@@ -13,12 +13,12 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.3
+        Product Revision  :  PIC10 / PIC12 / PIC16 / PIC18 MCUs - 1.81.7
         Device            :  PIC16LF18456
         Driver Version    :  2.11
     The generated drivers are tested against the following:
-        Compiler          :  XC8 2.20 and above
-        MPLAB             :  MPLAB X 5.40
+        Compiler          :  XC8 2.31 and above
+        MPLAB             :  MPLAB X 5.45
 
     Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
 */
@@ -62,7 +62,7 @@ void PIN_MANAGER_Initialize(void)
     LATE = 0x00;
     LATA = 0x31;
     LATB = 0x00;
-    LATC = 0xC1;
+    LATC = 0x01;
 
     /**
     TRISx registers
@@ -70,12 +70,12 @@ void PIN_MANAGER_Initialize(void)
     TRISE = 0x08;
     TRISA = 0xDE;
     TRISB = 0xEF;
-    TRISC = 0x25;
+    TRISC = 0xAF;
 
     /**
     ANSELx registers
     */
-    ANSELC = 0x00;
+    ANSELC = 0x02;
     ANSELB = 0xC9;
     ANSELA = 0x0E;
 
@@ -98,9 +98,9 @@ void PIN_MANAGER_Initialize(void)
     /**
     SLRCONx registers
     */
-    SLRCONA = 0xFF;
+    SLRCONA = 0x7E;
     SLRCONB = 0xFF;
-    SLRCONC = 0xFF;
+    SLRCONC = 0x3F;
 
     /**
     INLVLx registers
@@ -129,6 +129,7 @@ void PIN_MANAGER_Initialize(void)
     PIE0bits.IOCIE = 1; 
     
 	
+    INTPPS = 0x07;   //RA7->EXT_INT:INT;    
     SSP1CLKPPS = 0x09;   //RB1->MSSP1:SCL1;    
     RB1PPS = 0x13;   //RB1->MSSP1:SCL1;    
     RB2PPS = 0x14;   //RB2->MSSP1:SDA1;    

@@ -42,6 +42,7 @@
 #include "mcc_generated_files/rn487x/rn487x_interface.h"
 #include "mcc_generated_files/rn487x/rn487x.h"
 #include "mcc_generated_files/drivers/uart.h"
+#include "mcc_generated_files/ext_int.h"
 
 /** MACRO used to reference Periodic Timer overflow flag Set. 
  *  This is used by the application to have a semi-accurate 
@@ -70,6 +71,7 @@ static uint8_t serialIndex;                     /**< Local index value for seria
  */
 int main(void)
 {
+    int a=0;
     // initialize the device
     SYSTEM_Initialize();
     RN487X_SetAsyncMessageHandler(statusBuffer, sizeof(statusBuffer));
@@ -85,6 +87,10 @@ int main(void)
 
     while (1)
     {
+        if (IS_BUTTON_PUSHED()){
+            
+            a++;
+        }
         if (RN487X_IsConnected() == true)
         {
             if (TIMER_FLAG_SET() == true)

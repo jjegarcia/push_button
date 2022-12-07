@@ -55,6 +55,7 @@
 #include "interrupt_manager.h"
 #include "i2c1_master.h"
 #include "tmr0.h"
+#include "ext_int.h"
 #include "eusart2.h"
 #include "eusart1.h"
 #include "delay.h"

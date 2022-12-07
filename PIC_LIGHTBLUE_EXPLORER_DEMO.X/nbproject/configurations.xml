@@ -36,6 +36,7 @@
         <itemPath>mcc_generated_files/i2c1_driver.h</itemPath>
         <itemPath>mcc_generated_files/i2c1_master.h</itemPath>
         <itemPath>mcc_generated_files/delay.h</itemPath>
+        <itemPath>mcc_generated_files/ext_int.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
@@ -82,6 +83,7 @@
         <itemPath>mcc_generated_files/i2c1_driver.c</itemPath>
         <itemPath>mcc_generated_files/i2c1_master.c</itemPath>
         <itemPath>mcc_generated_files/delay.c</itemPath>
+        <itemPath>mcc_generated_files/ext_int.c</itemPath>
       </logicalFolder>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -107,7 +109,7 @@
         <platformTool>nEdbgTool</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.32</languageToolchainVersion>
-        <platform>3</platform>
+        <platform>4</platform>
       </toolsSet>
       <packs>
         <pack name="PIC16F1xxxx_DFP" vendor="Microchip" version="1.8.149"/>
