@@ -67,10 +67,12 @@ static char statusBuffer[MAX_BUFFER_SIZE]; /**< Status Buffer instance passed to
 static char lightBlueSerial[MAX_BUFFER_SIZE]; /**< Message Buffer used for CDC Serial communication when connected. Terminated by \r, \n, MAX character Passes messages to BLE for transmisison. */
 static uint8_t serialIndex; /**< Local index value for serial communication buffer. */
 static bool LED_ON;
+void blink(void);
 
 #define IS_LED_ON()     (LED_ON==true)
 #define SET_LED_ON()    (LED_ON=true)
 #define CLEAR_LED_ON()  (LED_ON=false)
+#define COUNTER_THRESHOLD 99999999999999
 
 typedef enum {
     LISTEN,
@@ -85,7 +87,7 @@ typedef enum {
  */
 int main(void) {
     _states state = LISTEN;
-    int a = 0;
+    int counter = 0;
     // initialize the device
     SYSTEM_Initialize();
     RN487X_SetAsyncMessageHandler(statusBuffer, sizeof (statusBuffer));
@@ -120,10 +122,12 @@ int main(void) {
                 break;
             case PUSHED:
                 if (TIMER_FLAG_SET() && !IS_BUTTON_ACTIVE()) {
-                    state = TIMEOUT;
                     FAST_MODE();
                     RELOAD_TIMER();
                     RESET_TIMER_INTERRUPT_FLAG;
+                    BUTTON_ACTIVE_CLEAR();
+                    EXT_INT_fallingEdgeSet();
+                    state = TIMEOUT;
                 } else {
                     if (IS_BUTTON_ACTIVE()) {
                         state = LISTEN;
@@ -135,65 +139,97 @@ int main(void) {
                 break;
             case TIMEOUT:
                 if (TIMER_FLAG_SET()) {
-                    RELOAD_TIMER();
-                    RESET_TIMER_INTERRUPT_FLAG;
-                    if (IS_LED_ON()) {
-                        CLEAR_LED_ON();
-                        DataLedOff();
-                    } else {
-                        SET_LED_ON();
-                        DataLedOn();
+                    blink();
+                    if (IS_BUTTON_ACTIVE()) {
+                        BUTTON_ACTIVE_CLEAR();
+                        EXT_INT_risingEdgeSet();
+                        counter = 0;
+                        state = COMPLETE;
                     }
                 }
                 break;
             case COMPLETE:
+                if (counter == COUNTER_THRESHOLD && !IS_BUTTON_ACTIVE()) {
+                    FAST_MODE();
+                    RELOAD_TIMER();
+                    RESET_TIMER_INTERRUPT_FLAG;
+                    BUTTON_ACTIVE_CLEAR();
+                    EXT_INT_fallingEdgeSet();
+                    state = RESET;
+                } else {
+                    if (IS_BUTTON_ACTIVE()) {
+                        state = TIMEOUT;
+                        EXT_INT_fallingEdgeSet();
+                        BUTTON_ACTIVE_CLEAR();
+                    }
+                }
                 break;
             case RESET:
+                if (IS_BUTTON_ACTIVE()) {
+                    EXT_INT_risingEdgeSet();
+                    state = LISTEN;
+                    BUTTON_ACTIVE_CLEAR();
+                } else {
+
+                }
+
                 break;
+
+
+
+
+
+                //        if (RN487X_IsConnected() == true) {
+                //            if (TIMER_FLAG_SET() == true) {
+                //                RESET_TIMER_INTERRUPT_FLAG;
+                //
+                //                LIGHTBLUE_TemperatureSensor();
+                //                LIGHTBLUE_AccelSensor();
+                //                LIGHTBLUE_PushButton();
+                //                LIGHTBLUE_LedState();
+                //                LIGHTBLUE_SendProtocolVersion();
+                //            } else {
+                //                while (RN487X_DataReady()) {
+                //                    LIGHTBLUE_ParseIncomingPacket(RN487X_Read());
+                //                }
+                //                while (uart[UART_CDC].DataReady()) {
+                //                    lightBlueSerial[serialIndex] = uart[UART_CDC].Read();
+                //                    if ((lightBlueSerial[serialIndex] == '\r')
+                //                            || (lightBlueSerial[serialIndex] == '\n')
+                //                            || (serialIndex == (sizeof (lightBlueSerial) - 1))) {
+                //                        lightBlueSerial[serialIndex] = '\0';
+                //                        LIGHTBLUE_SendSerialData(lightBlueSerial);
+                //                        serialIndex = 0;
+                //                    } else {
+                //                        serialIndex++;
+                //                    }
+                //                }
+                //
+                //            }
+                //        } else {
+                //            while (RN487X_DataReady()) {
+                //                uart[UART_CDC].Write(RN487X_Read());
+                //            }
+                //            while (uart[UART_CDC].DataReady()) {
+                //                RN487X.Write(uart[UART_CDC].Read());
+                //            }
+                //        }
+        }
+        return 0;
+    }
+}
+
+    void blink(void) {
+        RESET_TIMER_INTERRUPT_FLAG;
+        if (IS_LED_ON()) {
+            CLEAR_LED_ON();
+            DataLedOff();
+        } else {
+            SET_LED_ON();
+            DataLedOn();
         }
 
-
-
-
-
-        //        if (RN487X_IsConnected() == true) {
-        //            if (TIMER_FLAG_SET() == true) {
-        //                RESET_TIMER_INTERRUPT_FLAG;
-        //
-        //                LIGHTBLUE_TemperatureSensor();
-        //                LIGHTBLUE_AccelSensor();
-        //                LIGHTBLUE_PushButton();
-        //                LIGHTBLUE_LedState();
-        //                LIGHTBLUE_SendProtocolVersion();
-        //            } else {
-        //                while (RN487X_DataReady()) {
-        //                    LIGHTBLUE_ParseIncomingPacket(RN487X_Read());
-        //                }
-        //                while (uart[UART_CDC].DataReady()) {
-        //                    lightBlueSerial[serialIndex] = uart[UART_CDC].Read();
-        //                    if ((lightBlueSerial[serialIndex] == '\r')
-        //                            || (lightBlueSerial[serialIndex] == '\n')
-        //                            || (serialIndex == (sizeof (lightBlueSerial) - 1))) {
-        //                        lightBlueSerial[serialIndex] = '\0';
-        //                        LIGHTBLUE_SendSerialData(lightBlueSerial);
-        //                        serialIndex = 0;
-        //                    } else {
-        //                        serialIndex++;
-        //                    }
-        //                }
-        //
-        //            }
-        //        } else {
-        //            while (RN487X_DataReady()) {
-        //                uart[UART_CDC].Write(RN487X_Read());
-        //            }
-        //            while (uart[UART_CDC].DataReady()) {
-        //                RN487X.Write(uart[UART_CDC].Read());
-        //            }
-        //        }
     }
-    return 0;
-}
-/**
- End of File
- */
+    /**
+     End of File
+     */
