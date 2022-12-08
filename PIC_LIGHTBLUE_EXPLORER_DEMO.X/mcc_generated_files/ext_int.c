@@ -40,7 +40,7 @@ void INT_ISR(void)
 
 void INT_CallBack(void)
 {
-     BUTTON_PUSHED();
+     BUTTON_ACTIVE();
     // Add your custom callback code here
     if(INT_InterruptHandler)
     {
@@ -67,7 +67,7 @@ void EXT_INT_Initialize(void)
     // Set Default Interrupt Handler
     INT_SetInterruptHandler(INT_DefaultInterruptHandler);
     EXT_INT_InterruptEnable();    
-    BUTTON_PUSHED_CLEAR();
+    BUTTON_ACTIVE_CLEAR();
     BUTTON_INITIALISED_CLEAR();
 }
 

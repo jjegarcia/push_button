@@ -65,8 +65,10 @@ volatile uint16_t timer0ReloadVal16bit;
 void TMR0_Initialize(void) {
     // Set TMR0 to the options selected in the User Interface
 
-    // T0CS FOSC/4; T0CKPS 1:512; T0ASYNC synchronised; 
-    T0CON1 = 0x49;
+    //    // T0CS FOSC/4; T0CKPS 1:512; T0ASYNC synchronised; 
+    //    T0CON1 = 0x49;
+    SLOW_MODE();
+
 
     // TMR0H 11; 
     TMR0H = 0x00;
@@ -86,7 +88,7 @@ void TMR0_Initialize(void) {
 
 void TMR0_StartTimer(void) {
     // Start the Timer by writing to TMR0ON bit
-        T0CON0bits.T0EN = 1;
+    T0CON0bits.T0EN = 1;
 }
 
 void TMR0_StopTimer(void) {
@@ -122,6 +124,19 @@ bool TMR0_HasOverflowOccured(void) {
     // check if  overflow has occurred by checking the TMRIF bit
     return (PIR0bits.TMR0IF == 1);
 }
+
+void TMR0_Slow_Mode(void) {
+    // T0CS FOSC/4; T0CKPS 1:512; T0ASYNC synchronised; 
+    T0CON1 = 0x49;
+    FastMode = false;
+}
+
+void TMR0_Fast_Mode(void) {
+    // T0CS FOSC/4; T0CKPS 1:??; T0ASYNC synchronised; 
+    T0CON1 = 0x44;
+    FastMode = true;
+}
+
 /**
   End of File
  */
