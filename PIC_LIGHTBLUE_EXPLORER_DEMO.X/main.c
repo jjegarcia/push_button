@@ -72,7 +72,6 @@ void blink(void);
 #define IS_LED_ON()     (LED_ON==true)
 #define SET_LED_ON()    (LED_ON=true)
 #define CLEAR_LED_ON()  (LED_ON=false)
-#define COUNTER_THRESHOLD 99999999999999
 
 typedef enum {
     LISTEN,
@@ -86,6 +85,7 @@ typedef enum {
                      Main application
  */
 int main(void) {
+    int COUNTER_THRESHOLD = 99999999999;
     _states state = LISTEN;
     int counter = 0;
     // initialize the device
@@ -130,10 +130,10 @@ int main(void) {
                     state = TIMEOUT;
                 } else {
                     if (IS_BUTTON_ACTIVE()) {
-                        state = LISTEN;
                         DataLedOff();
                         EXT_INT_fallingEdgeSet();
                         BUTTON_ACTIVE_CLEAR();
+                        state = LISTEN;
                     }
                 }
                 break;
@@ -149,30 +149,28 @@ int main(void) {
                 }
                 break;
             case COMPLETE:
+                counter++;
+                blink();
+                bool test = IS_BUTTON_ACTIVE();
                 if (counter == COUNTER_THRESHOLD && !IS_BUTTON_ACTIVE()) {
-                    FAST_MODE();
-                    RELOAD_TIMER();
-                    RESET_TIMER_INTERRUPT_FLAG;
                     BUTTON_ACTIVE_CLEAR();
                     EXT_INT_fallingEdgeSet();
+                    //                    counter = 0;
                     state = RESET;
                 } else {
                     if (IS_BUTTON_ACTIVE()) {
-                        state = TIMEOUT;
                         EXT_INT_fallingEdgeSet();
                         BUTTON_ACTIVE_CLEAR();
+                        state = TIMEOUT;
                     }
                 }
                 break;
             case RESET:
-                if (IS_BUTTON_ACTIVE()) {
-                    EXT_INT_risingEdgeSet();
-                    state = LISTEN;
-                    BUTTON_ACTIVE_CLEAR();
-                } else {
-
-                }
-
+                //                    EXT_INT_risingEdgeSet();
+                SLOW_MODE();
+                BUTTON_ACTIVE_CLEAR();
+                DataLedOff();
+                state = LISTEN;
                 break;
 
 
@@ -216,20 +214,20 @@ int main(void) {
                 //        }
         }
     }
-        return 0;
+    return 0;
 }
 
-    void blink(void) {
-        RESET_TIMER_INTERRUPT_FLAG;
-        if (IS_LED_ON()) {
-            CLEAR_LED_ON();
-            DataLedOff();
-        } else {
-            SET_LED_ON();
-            DataLedOn();
-        }
-
+void blink(void) {
+    RESET_TIMER_INTERRUPT_FLAG;
+    if (IS_LED_ON()) {
+        CLEAR_LED_ON();
+        DataLedOff();
+    } else {
+        SET_LED_ON();
+        DataLedOn();
     }
-    /**
-     End of File
-     */
+
+}
+/**
+ End of File
+ */
