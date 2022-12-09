@@ -850,7 +850,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="I2CSIMPLE" name="pubSubI2CSIMPLE_I2CMASTER/Functions"/>
-         <value>6014.200950104146</value>
+         <value>8035.107158679312</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="I2CSIMPLE" name="useCaseComboBoxSettings"/>
@@ -2661,11 +2661,11 @@
          <value>disabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RX1DTPPS%aux0"/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RX1DTPPS%aux1"/>
          <value>13</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RX2DTPPS%aux1"/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="RX2DTPPS%aux2"/>
          <value>21</value>
       </entry>
       <entry>
@@ -2693,7 +2693,7 @@
          <value>enabled</value>
       </entry>
       <entry>
-         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="T0CKIPPS%aux2"/>
+         <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="Pin Module" name="T0CKIPPS%aux0"/>
          <value>%DESELECT%</value>
       </entry>
       <entry>
@@ -7722,7 +7722,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART" name="pubSubUARTConfigurations"/>
-         <value>5187.214448485917</value>
+         <value>7611.119460958255</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART" name="usecaseComboSettings"/>
@@ -7730,7 +7730,7 @@
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.CustomKey" moduleName="UART" name="validate"/>
-         <value>0.13685024180023497</value>
+         <value>0.2735534476914101</value>
       </entry>
       <entry>
          <key class="com.microchip.mcc.core.tokenManager.PropertyTokenKey" moduleName="UART" name="uartConfigurationList%0%interruptState"/>
@@ -7797,150 +7797,150 @@
          <value>WDT window violation reset has not occurred</value>
       </entry>
    </tokenMap>
-   <generatedFileHashHistoryMap class="java.util.HashMap">
-      <entry>
-         <file>mcc_generated_files/interrupt_manager.h</file>
-         <hash>3270d7bf594da7c067f9082e83cb8e2aa584761b23852c2648d0f19a0171b13d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/docs/uart.dox</file>
-         <hash>98e8108c480be91b9d680db751409daa16ab284d6e3664e56dff426441d18783</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/eusart2.h</file>
-         <hash>59543ac83d278e9d2a4807328df9572c060e5f8fd8570e7a1b6e2d167fe04543</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/rn487x/rn487x_interface.h</file>
-         <hash>83701b2911a28edaf78f5281f20e64fb56cea0ad1b1a8d08b4fac20f1a8a55e3</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/examples/rn487x_example.c</file>
-         <hash>03ff1f51c85f5df2609f8b4036b004364587e283db90568665b146d46c20237e</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/eusart1.h</file>
-         <hash>eb662b8d573939998f6e9828c068a022f0e560d7bb31976cec975fbbe62ede95</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/ext_int.h</file>
-         <hash>977ffbfc81fffea0fcec1f3727b81d2132e2ed918bba004e5e997eb598cb92e4</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/rn487x/rn487x.c</file>
-         <hash>ffd17cf684d1d3fce4ebf2049241e64e3fa4425186438370f13417caf2ef9aa1</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/rn487x/rn487x_interface.c</file>
-         <hash>f5d3b9e2ecac3fbb3e54a1c2c9baeebd43d56c9a34e1d2af84c363bc4358fab4</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/delay.h</file>
-         <hash>dda77102dba9adc0f9aef1c8c542cfee6d6cccc96446f4cd1bf07be2150a4d95</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/rn487x/rn487x.h</file>
-         <hash>987b4b0dadf50169f8fbe9f836728c0af0c0cf423a080b520846005738deadf7</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/examples/i2c1_master_example.c</file>
-         <hash>58877ccabb2bf9cb1c16af81eb6b5354e0744db685a017678ee78c4479b8e123</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/examples/rn487x_example.h</file>
-         <hash>b7afe3616d7864048b9eb4803fa13c13f842b282416a2235c3fe41c5050d3ee7</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/eusart2.c</file>
-         <hash>00056e26aada7e962437edd11aeb1ea37c02b2dacaf7c4b60f48fcec3e51f9af</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/ext_int.c</file>
-         <hash>2c652b2a86dc0d0889cf6623e7d82ddac6f9c67e2b0930b54c34717b5a0dd886</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/mcc.h</file>
-         <hash>9ccfe2732daa8d706374f7068838eafbd586f4e98597d5256f16372993b51382</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/eusart1.c</file>
-         <hash>07004810f88e13efefb3fbb03cf48b9eff4bc46043d5f3568027db8ff00b2c98</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/interrupt_manager.c</file>
-         <hash>9d7a1914ad772532ba53bb4fde93278fa6a0daf9f4927bc93182069e8d24930e</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/mcc.c</file>
-         <hash>1f4f3767e4648af664faa50e13917dceba430286b2902e797ce6ade99034a652</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/pin_manager.c</file>
-         <hash>29570d48164dce24af6368e3d4e2af43bcba05aacb567bdcb443c222b1ba5586</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/tmr0.c</file>
-         <hash>74b1207d693408221dee8a3fdf10ed6dd5e058125c973d72f3113535afbb5fa0</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/pin_manager.h</file>
-         <hash>c3678da0e5ae472956146693371f51a8724b1b99db494951bcf3cf55a73f7ee4</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/i2c1_master.h</file>
-         <hash>d05af4661f13d7c7a2c75294094fbf12367c935dac794d6e2eb1872cd012c959</hash>
-      </entry>
+   <generatedFileHashHistoryMap class="java.util.TreeMap">
       <entry>
          <file>main.c</file>
          <hash>0e6e9d42004f76b6fe61d71d71328f430e1edfbd9188a9020cf9dd846cc5b561</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/i2c1_master.c</file>
-         <hash>d93401f3645f4df4eaed46dd45dab306e4f7157daf496182da7349986210579b</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/examples/i2c1_master_example.h</file>
-         <hash>0e16f2fb75cd401b14a3a7647ab6bbb840bad51b2850e28e58e5147edab9e0df</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/tmr0.h</file>
-         <hash>aa9166c251516440220ee6d3d0d2470bba1e096ccc70aa8d95845df05049bd67</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/drivers/uart.h</file>
-         <hash>38b9359d1536bc63288057314ecb8766ec72762914bf9e9370cef2ef88e3ce21</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/delay.c</file>
          <hash>742b54d5a6a92f5aa610a8147b6d8725268a74567d19370a4dd95fa5efa0127e</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/device_config.h</file>
-         <hash>109aa73d2ea9dd88169c3a8b3950c906b95dae29149d56025c2d1c92d779f4db</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/drivers/i2c_simple_master.h</file>
-         <hash>4d313ea4669cc110baeed2f4a8491a4df811e3613b401940a12d8162b4fdd0bc</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/drivers/i2c_simple_master.c</file>
-         <hash>ba50350955f60eba5472723ee0319caec5701e036e01de6f92bcb3ebd2c7e81d</hash>
-      </entry>
-      <entry>
-         <file>mcc_generated_files/drivers/uart.c</file>
-         <hash>7e9b857665b66a9fede29a9dc774c0486ce4eb2d27c4d86b4eba7f294c1369b3</hash>
+         <file>mcc_generated_files/delay.h</file>
+         <hash>dda77102dba9adc0f9aef1c8c542cfee6d6cccc96446f4cd1bf07be2150a4d95</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/device_config.c</file>
          <hash>fb6962e7068c800a12c130b620e6a37e1fbf51b451609f9cb5ba1965561cfa14</hash>
       </entry>
       <entry>
-         <file>mcc_generated_files/docs/i2c_simple.dox</file>
-         <hash>1192d1c2a9473538887a2fae1d9c6e67d9d7833010dccb831311a503f3a29da6</hash>
+         <file>mcc_generated_files/device_config.h</file>
+         <hash>109aa73d2ea9dd88169c3a8b3950c906b95dae29149d56025c2d1c92d779f4db</hash>
       </entry>
       <entry>
          <file>mcc_generated_files/docs/delay.dox</file>
          <hash>13d4874d789b563dd4499efacd71882cbc38f8459da91ac17f13fa76079be93b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/docs/i2c_simple.dox</file>
+         <hash>1192d1c2a9473538887a2fae1d9c6e67d9d7833010dccb831311a503f3a29da6</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/docs/uart.dox</file>
+         <hash>98e8108c480be91b9d680db751409daa16ab284d6e3664e56dff426441d18783</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/drivers/i2c_simple_master.c</file>
+         <hash>ba50350955f60eba5472723ee0319caec5701e036e01de6f92bcb3ebd2c7e81d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/drivers/i2c_simple_master.h</file>
+         <hash>4d313ea4669cc110baeed2f4a8491a4df811e3613b401940a12d8162b4fdd0bc</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/drivers/uart.c</file>
+         <hash>7e9b857665b66a9fede29a9dc774c0486ce4eb2d27c4d86b4eba7f294c1369b3</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/drivers/uart.h</file>
+         <hash>38b9359d1536bc63288057314ecb8766ec72762914bf9e9370cef2ef88e3ce21</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/eusart1.c</file>
+         <hash>07004810f88e13efefb3fbb03cf48b9eff4bc46043d5f3568027db8ff00b2c98</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/eusart1.h</file>
+         <hash>eb662b8d573939998f6e9828c068a022f0e560d7bb31976cec975fbbe62ede95</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/eusart2.c</file>
+         <hash>00056e26aada7e962437edd11aeb1ea37c02b2dacaf7c4b60f48fcec3e51f9af</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/eusart2.h</file>
+         <hash>59543ac83d278e9d2a4807328df9572c060e5f8fd8570e7a1b6e2d167fe04543</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/i2c1_master_example.c</file>
+         <hash>58877ccabb2bf9cb1c16af81eb6b5354e0744db685a017678ee78c4479b8e123</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/i2c1_master_example.h</file>
+         <hash>0e16f2fb75cd401b14a3a7647ab6bbb840bad51b2850e28e58e5147edab9e0df</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/rn487x_example.c</file>
+         <hash>03ff1f51c85f5df2609f8b4036b004364587e283db90568665b146d46c20237e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/examples/rn487x_example.h</file>
+         <hash>b7afe3616d7864048b9eb4803fa13c13f842b282416a2235c3fe41c5050d3ee7</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/ext_int.c</file>
+         <hash>2c652b2a86dc0d0889cf6623e7d82ddac6f9c67e2b0930b54c34717b5a0dd886</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/ext_int.h</file>
+         <hash>977ffbfc81fffea0fcec1f3727b81d2132e2ed918bba004e5e997eb598cb92e4</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/i2c1_master.c</file>
+         <hash>d93401f3645f4df4eaed46dd45dab306e4f7157daf496182da7349986210579b</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/i2c1_master.h</file>
+         <hash>d05af4661f13d7c7a2c75294094fbf12367c935dac794d6e2eb1872cd012c959</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/interrupt_manager.c</file>
+         <hash>9d7a1914ad772532ba53bb4fde93278fa6a0daf9f4927bc93182069e8d24930e</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/interrupt_manager.h</file>
+         <hash>3270d7bf594da7c067f9082e83cb8e2aa584761b23852c2648d0f19a0171b13d</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mcc.c</file>
+         <hash>1f4f3767e4648af664faa50e13917dceba430286b2902e797ce6ade99034a652</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/mcc.h</file>
+         <hash>9ccfe2732daa8d706374f7068838eafbd586f4e98597d5256f16372993b51382</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/pin_manager.c</file>
+         <hash>29570d48164dce24af6368e3d4e2af43bcba05aacb567bdcb443c222b1ba5586</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/pin_manager.h</file>
+         <hash>c3678da0e5ae472956146693371f51a8724b1b99db494951bcf3cf55a73f7ee4</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/rn487x/rn487x.c</file>
+         <hash>ffd17cf684d1d3fce4ebf2049241e64e3fa4425186438370f13417caf2ef9aa1</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/rn487x/rn487x.h</file>
+         <hash>987b4b0dadf50169f8fbe9f836728c0af0c0cf423a080b520846005738deadf7</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/rn487x/rn487x_interface.c</file>
+         <hash>f5d3b9e2ecac3fbb3e54a1c2c9baeebd43d56c9a34e1d2af84c363bc4358fab4</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/rn487x/rn487x_interface.h</file>
+         <hash>83701b2911a28edaf78f5281f20e64fb56cea0ad1b1a8d08b4fac20f1a8a55e3</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/tmr0.c</file>
+         <hash>74b1207d693408221dee8a3fdf10ed6dd5e058125c973d72f3113535afbb5fa0</hash>
+      </entry>
+      <entry>
+         <file>mcc_generated_files/tmr0.h</file>
+         <hash>aa9166c251516440220ee6d3d0d2470bba1e096ccc70aa8d95845df05049bd67</hash>
       </entry>
    </generatedFileHashHistoryMap>
 </config>
