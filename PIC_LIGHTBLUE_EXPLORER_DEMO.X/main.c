@@ -67,6 +67,7 @@ static char statusBuffer[MAX_BUFFER_SIZE]; /**< Status Buffer instance passed to
 static char lightBlueSerial[MAX_BUFFER_SIZE]; /**< Message Buffer used for CDC Serial communication when connected. Terminated by \r, \n, MAX character Passes messages to BLE for transmisison. */
 static uint8_t serialIndex; /**< Local index value for serial communication buffer. */
 static bool LED_ON;
+
 void setListen(void);
 void setPushed(void);
 void setTimeout(void);
@@ -108,8 +109,6 @@ int main(void) {
     RN487X_Init();
     LIGHTBLUE_Initialize();
 
-    //    RESET_TIMER_INTERRUPT_FLAG;
-
     while (1) {
         //        if (RN487X_IsConnected() == true) {
         switch (state) {
@@ -143,15 +142,11 @@ int main(void) {
             case COMPLETE:
                 counter++;
                 blink();
-                bool test = IS_BUTTON_ACTIVE();
                 if (counter == COUNTER_THRESHOLD && !IS_BUTTON_ACTIVE()) {
                     setReset();
                 } else {
                     if (IS_BUTTON_ACTIVE()) {
                         setTimeout();
-                        //                        EXT_INT_fallingEdgeSet();
-                        //                        BUTTON_ACTIVE_CLEAR();
-                        //                        state = TIMEOUT;
                     }
                 }
                 break;
