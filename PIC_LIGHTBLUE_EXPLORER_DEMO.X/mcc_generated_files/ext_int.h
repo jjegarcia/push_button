@@ -62,6 +62,7 @@ extern "C" {
 
     bool Button_Active;
     bool Button_Initialised;
+    
 #define IS_BUTTON_ACTIVE()          (Button_Active==true)
 #define BUTTON_ACTIVE()             (Button_Active=true) 
 #define BUTTON_ACTIVE_CLEAR()       (Button_Active=false)

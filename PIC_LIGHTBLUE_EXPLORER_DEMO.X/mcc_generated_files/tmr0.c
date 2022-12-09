@@ -126,7 +126,7 @@ bool TMR0_HasOverflowOccured(void) {
 }
 
 void TMR0_Slow_Mode(void) {
-    // T0CS FOSC/4; T0CKPS 1:512; T0ASYNC synchronised; 
+    // T0CS FOSC/4; T0CKPS 1:??; T0ASYNC synchronised; 
     T0CON1 = 0x49;
     FastMode = false;
 }

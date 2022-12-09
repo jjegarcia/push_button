@@ -58,8 +58,7 @@ void INT_DefaultInterruptHandler(void){
 }
 
 void EXT_INT_Initialize(void)
-{
-    
+{    
     // Clear the interrupt flag
     // Set the external interrupt edge detect
     EXT_INT_InterruptFlagClear();   

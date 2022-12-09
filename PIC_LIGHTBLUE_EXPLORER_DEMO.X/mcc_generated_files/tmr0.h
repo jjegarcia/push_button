@@ -314,6 +314,7 @@ extern "C" {
         }
         </code>
      */
+    
     bool TMR0_HasOverflowOccured(void);
     void TMR0_Slow_Mode(void);
     void TMR0_Fast_Mode(void);
