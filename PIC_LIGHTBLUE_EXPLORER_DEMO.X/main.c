@@ -36,56 +36,7 @@
     OF FEES, IF ANY, THAT YOU HAVE PAID DIRECTLY TO MICROCHIP FOR THIS 
     SOFTWARE.
  */
-
-#include "mcc_generated_files/mcc.h"
-#include "mcc_generated_files/application/LIGHTBLUE_service.h"
-#include "mcc_generated_files/rn487x/rn487x_interface.h"
-#include "mcc_generated_files/rn487x/rn487x.h"
-#include "mcc_generated_files/drivers/uart.h"
-#include "mcc_generated_files/ext_int.h"
-#include "mcc_generated_files/tmr0.h"
-
-/** MACRO used to reference Periodic Timer overflow flag Set. 
- *  This is used by the application to have a semi-accurate 
- *  periodic task execution rate. 
- *  Strict adherence to time interval is not required.
- */
-//#define TIMER_FLAG_SET()                (TMR0_HasOverflowOccured())
-/** MACRO used to reset the Periodic Timer overflow flag.
- *  This is used by the application to reload the semi-accurate
- *  periodic task execution.
- *  The rate allows for a (100%) drift prior to error
- *  Is susceptible to effect by extended BLE communication. 
- */
-//#define RESET_TIMER_INTERRUPT_FLAG      (PIR0bits.TMR0IF = 0)
-/** MACRO used to configure the application used buffer sizes.
- *  This is used by the application for communication buffers.
- */
-#define MAX_BUFFER_SIZE                 (80)
-
-static char statusBuffer[MAX_BUFFER_SIZE]; /**< Status Buffer instance passed to RN487X drive used for Asynchronous Message Handling (see *asyncBuffer in rn487x.c) */
-static char lightBlueSerial[MAX_BUFFER_SIZE]; /**< Message Buffer used for CDC Serial communication when connected. Terminated by \r, \n, MAX character Passes messages to BLE for transmisison. */
-static uint8_t serialIndex; /**< Local index value for serial communication buffer. */
-static bool LED_ON;
-
-void setListen(void);
-void setPushed(void);
-void setTimeout(void);
-void setComplete(void);
-void setReset(void);
-void blink(void);
-
-#define IS_LED_ON()     (LED_ON==true)
-#define SET_LED_ON()    (LED_ON=true)
-#define CLEAR_LED_ON()  (LED_ON=false)
-
-typedef enum {
-    LISTEN,
-    PUSHED,
-    TIMEOUT,
-    COMPLETE,
-    RESET
-} _states;
+#include "main.h"
 
 _states state = LISTEN;
 int counter = 0;
