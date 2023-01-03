@@ -99,6 +99,7 @@ void setTimeout(void);
 void setComplete(void);
 void setAlert(void);
 void blink(void);
+void runProtocol(void);
 
 #define IS_LED_ON()     (LED_ON==true)
 #define SET_LED_ON()    (LED_ON=true)
