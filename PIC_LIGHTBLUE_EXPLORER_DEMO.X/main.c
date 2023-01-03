@@ -61,48 +61,81 @@ int main(void) {
     LIGHTBLUE_Initialize();
 
     while (1) {
-        switch (state) {
-            case LISTEN:
-                if (IS_BUTTON_ACTIVE()) {
-                    BUTTON_ACTIVE_CLEAR();
-                    if (!IS_BUTTON_INITIALISED()) {
-                        BUTTON_INITIALISED();
-                    } else {
-                        setPushed();
-                    }
-                }
-                break;
-            case PUSHED:
-                if (TIMER_FLAG_SET() && !IS_BUTTON_ACTIVE()) {
-                    setTimeout();
-                } else {
+        if (RN487X_IsConnected() == true) {
+            switch (state) {
+                case LISTEN:
                     if (IS_BUTTON_ACTIVE()) {
-                        setListen();
+                        BUTTON_ACTIVE_CLEAR();
+                        if (!IS_BUTTON_INITIALISED()) {
+                            BUTTON_INITIALISED();
+                        } else {
+                            setPushed();
+                        }
                     }
-                }
-                break;
-            case TIMEOUT:
-                if (TIMER_FLAG_SET()) {
-                    blink();
-                    if (IS_BUTTON_ACTIVE()) {
-                        setComplete();
-                    }
-                }
-                break;
-            case COMPLETE:
-                counter++;
-                blink();
-                if (counter == COUNTER_THRESHOLD && !IS_BUTTON_ACTIVE()) {
-                    setReset();
-                } else {
-                    if (IS_BUTTON_ACTIVE()) {
+                    break;
+                case PUSHED:
+                    if (TIMER_FLAG_SET() && !IS_BUTTON_ACTIVE()) {
                         setTimeout();
+                    } else {
+                        if (IS_BUTTON_ACTIVE()) {
+                            setListen();
+                        }
                     }
-                }
-                break;
-            case RESET:
-                setListen();
-                break;
+                    break;
+                case TIMEOUT:
+                    if (TIMER_FLAG_SET()) {
+                        blink();
+                        if (IS_BUTTON_ACTIVE()) {
+                            setComplete();
+                        }
+                    }
+                    break;
+                case COMPLETE:
+                    counter++;
+                    blink();
+                    if (counter == COUNTER_THRESHOLD && !IS_BUTTON_ACTIVE()) {
+                        setReset();
+                    } else {
+                        if (IS_BUTTON_ACTIVE()) {
+                            setTimeout();
+                        }
+                    }
+                    break;
+                case RESET:
+                    if (TIMER_FLAG_SET() == true) {
+                        RESET_TIMER_INTERRUPT_FLAG;
+
+                        LIGHTBLUE_TemperatureSensor();
+                        LIGHTBLUE_AccelSensor();
+                        LIGHTBLUE_PushButton();
+                        LIGHTBLUE_LedState();
+                        LIGHTBLUE_SendProtocolVersion();
+                    } else {
+                        while (RN487X_DataReady()) {
+                            LIGHTBLUE_ParseIncomingPacket(RN487X_Read());
+                        }
+                        while (uart[UART_CDC].DataReady()) {
+                            lightBlueSerial[serialIndex] = uart[UART_CDC].Read();
+                            if ((lightBlueSerial[serialIndex] == '\r')
+                                    || (lightBlueSerial[serialIndex] == '\n')
+                                    || (serialIndex == (sizeof (lightBlueSerial) - 1))) {
+                                lightBlueSerial[serialIndex] = '\0';
+                                LIGHTBLUE_SendSerialData(lightBlueSerial);
+                                serialIndex = 0;
+                            } else {
+                                serialIndex++;
+                            }
+                        }
+                    }
+                    break;
+            }
+        } else {
+            while (RN487X_DataReady()) {
+                uart[UART_CDC].Write(RN487X_Read());
+            }
+            while (uart[UART_CDC].DataReady()) {
+                RN487X.Write(uart[UART_CDC].Read());
+            }
         }
     }
     return 0;
@@ -158,6 +191,3 @@ void blink(void) {
     }
 
 }
-/**
- End of File
- */
