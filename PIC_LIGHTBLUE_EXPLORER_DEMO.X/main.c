@@ -61,7 +61,6 @@ int main(void) {
     LIGHTBLUE_Initialize();
 
     while (1) {
-        //        if (RN487X_IsConnected() == true) {
         switch (state) {
             case LISTEN:
                 if (IS_BUTTON_ACTIVE()) {
@@ -105,14 +104,6 @@ int main(void) {
                 setListen();
                 break;
         }
-        //        } else {
-        //            while (RN487X_DataReady()) {
-        //                uart[UART_CDC].Write(RN487X_Read());
-        //            }
-        //            while (uart[UART_CDC].DataReady()) {
-        //                RN487X.Write(uart[UART_CDC].Read());
-        //            }
-        //        }
     }
     return 0;
 }
