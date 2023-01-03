@@ -344,6 +344,17 @@ void LIGHTBLUE_PushButton(void)
     LIGHTBLUE_SendPacket(BUTTON_STATE_ID, payload);
 }
 
+void LIGHTBLUE_PushButton_Alert(void)
+{
+    char payload[3];
+    uint8_t button = 0x01;
+    
+    *payload = '\0';
+    LIGHTBLUE_SplitByte(payload, button);
+    
+    LIGHTBLUE_SendPacket(BUTTON_STATE_ID, payload);
+}
+
 void LIGHTBLUE_LedState(void)
 {
     char payload[3];

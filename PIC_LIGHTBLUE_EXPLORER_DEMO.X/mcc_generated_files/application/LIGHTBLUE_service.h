@@ -73,6 +73,8 @@ void LIGHTBLUE_AccelSensor(void);
  \return void \n
  */
 void LIGHTBLUE_PushButton(void);
+
+void LIGHTBLUE_PushButton_Alert(void);
 /**
  \ingroup LIGHTBLUE
  \brief  Public function used to issue LED state to the Light Blue application \n

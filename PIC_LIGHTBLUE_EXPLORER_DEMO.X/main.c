@@ -94,20 +94,20 @@ int main(void) {
                     counter++;
                     blink();
                     if (counter == COUNTER_THRESHOLD && !IS_BUTTON_ACTIVE()) {
-                        setReset();
+                        setAlert();
                     } else {
                         if (IS_BUTTON_ACTIVE()) {
                             setTimeout();
                         }
                     }
                     break;
-                case RESET:
+                case ALERT:
                     if (TIMER_FLAG_SET() == true) {
                         RESET_TIMER_INTERRUPT_FLAG;
 
                         LIGHTBLUE_TemperatureSensor();
                         LIGHTBLUE_AccelSensor();
-                        LIGHTBLUE_PushButton();
+                        LIGHTBLUE_PushButton_Alert();
                         LIGHTBLUE_LedState();
                         LIGHTBLUE_SendProtocolVersion();
                     } else {
@@ -174,10 +174,11 @@ void setComplete(void) {
     state = COMPLETE;
 }
 
-void setReset(void) {
+void setAlert(void) {
     BUTTON_ACTIVE_CLEAR();
     EXT_INT_fallingEdgeSet();
-    state = RESET;
+    SET_LED_ON();
+    state = ALERT;
 }
 
 void blink(void) {

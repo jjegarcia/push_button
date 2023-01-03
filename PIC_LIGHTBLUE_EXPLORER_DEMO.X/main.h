@@ -97,7 +97,7 @@ void setListen(void);
 void setPushed(void);
 void setTimeout(void);
 void setComplete(void);
-void setReset(void);
+void setAlert(void);
 void blink(void);
 
 #define IS_LED_ON()     (LED_ON==true)
@@ -109,7 +109,7 @@ typedef enum {
     PUSHED,
     TIMEOUT,
     COMPLETE,
-    RESET
+    ALERT
 } _states;
 
 
